@@ -1,5 +1,4 @@
 import requests
-import pandas as pd
 from smtplib import *
 import os
 from dotenv import load_dotenv
