@@ -10,8 +10,8 @@ passkey = os.getenv("PASSWORD")
 my_api = os.getenv("OPENWEATHER_API_KEY")
 to_addr = os.getenv("TO_EMAIL")
 params = {
-    "lat": 49.655338,
-    "lon": 13.290880,
+    "lat": 12.780712,
+    "lon": 77.770958,
     "appid": my_api,
     "units": "metric",
     "cnt":4
