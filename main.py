@@ -1,10 +1,15 @@
 import requests
 import pandas as pd
 from smtplib import *
-my_email="kdark8276@gmail.com"
-passkey="hzdo btpg wxux kbpv"
+import os
+from dotenv import load_dotenv
 
-my_api="f989549b9517f6a418526b372d963348"
+load_dotenv()
+
+my_email = os.getenv("EMAIL")
+passkey = os.getenv("PASSWORD")
+my_api = os.getenv("OPENWEATHER_API_KEY")
+to_addr = os.getenv("TO_EMAIL")
 params = {
     "lat": 49.655338,
     "lon": 13.290880,
@@ -31,14 +36,14 @@ if will:
         connection.starttls()
         connection.login(user=my_email, password=passkey)
         connection.sendmail(from_addr=my_email,
-                            to_addrs="ganesh20066@yahoo.com",
+                            to_addrs=to_addr,
                             msg="Subject: Weather forecast \n\n Bring Umbrella")
 else:
     with SMTP("smtp.gmail.com", 587) as connection:
         connection.starttls()
         connection.login(user=my_email, password=passkey)
         connection.sendmail(from_addr=my_email,
-                            to_addrs="ganesh20066@yahoo.com",
+                            to_addrs=to_addr,
                             msg="Subject:Weather forecast \n\n Don't bring Umbrella")
 
 print("email sent successfully")
